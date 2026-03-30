@@ -1,0 +1,171 @@
+body{
+   margin: 0;
+   padding: 0;
+}
+.barra {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+}
+
+.barrita {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 20px;
+  font-size: 12px;
+  border-bottom: 1px solid gray;
+}
+
+.textochico {
+  display: flex;
+  gap: 15px;
+  
+}
+.textochico a{
+    color: white;
+    font-size: 10px;
+}
+
+.barra1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.fifa {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  margin-right: 20px;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.top a {
+  color: white;
+  text-decoration: none;
+}
+.contenedor {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  border-radius:0px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.card-top {
+  height: 90px;
+  padding: 15px;
+  position: relative;
+}
+
+.card-top h3 {
+  margin-top: 40px;
+  font-size: 24px;
+}
+
+.banderita {
+  width: 30px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.izquierda {
+  color: gray;
+}
+
+.derecha {
+  text-align: right;
+  font-weight: bold;
+  flex-direction: column;
+}
+
+
+
+.alemania { 
+    background: #1f1f1f; color:
+     white; 
+    }
+.arabia { 
+    background: #27a550; 
+}
+.argelia { 
+    background: #00a067; 
+}
+.argentina {
+     background: #9cc9f2; 
+    }
+.australia { 
+    background: #efb500;
+ }
+.austria {
+     background: #ed3d32; 
+    }
+.brasil {
+     background: #ffcf25; 
+    }
+.belgica {
+     background: #880029; 
+     color: white; 
+    }
+    
+ .gris{
+    color: #999;
+ }
+ .negro{
+    color: #000;
+    font-weight: bold;
+ }
+ .Derecha a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 10px;
+    color: white;
+}
+.derecha{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+    font-size: 10px;
+    
+}
+.derecha a{
+    text-decoration: none;
+    color: white;
+    
+}
+.arriba {
+    color: white;
+
+}

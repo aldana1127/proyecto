@@ -26,15 +26,15 @@ body{
     justify-content: center;
     gap: 10px;
 }
-.button{
+button{
 padding: 10px 15px;
 border: none;
 border-radius: 10px;
-background-color: #4caf50;
+background-color: pink;
 color: white;
 cursor: pointer;
 }
-.button:hover{
-    background: color #4caf49;;
+button:hover{
+    background-color: plum ;
     transform: scale(1.15);
 }

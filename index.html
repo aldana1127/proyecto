@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Películas</title>
+<link rel="stylesheet" href="css/sstyle.css">
+</head>
+<body>
+
+<div class="contenedor">
+<img src="imagenes/imagenn.png"alt="cine"class="banner">
+<h1>
+    <span class="emoji">🎥</span>Lista de Películas<span class="emoji">🍿</span>
+</h1>
+<input type="text" id="inputPelicula" placeholder="Escribí una película">
+<div id="error">
+    error:ingrese una pelicula válida
+</div>
+<button id="btnAgregar">Agregar</button>
+
+<select id="filtro">
+<option value="todas">Todas</option>
+<option value="vistas">Vistas</option>
+<option value="pendientes">Pendientes</option>
+</select>
+
+<p id="contador">Total de películas: 0</p>
+<ul id="listaPeliculas"></ul>
+<h2 class="titulo-plataformas">
+    Plataformas para ver películas
+</h2>
+<div class="plataformas">
+
+<a href="https://www.netflix.com"target="_blank">🎬 Netflix</a>
+
+<a href="https://www.disneyplus.com"target="_blank">🍿 Disney+</a>
+
+<a href="https://www.primevideo.com"target="_blank">🎥 Prime Video</a>
+
+<a href="https://www.max.com"target="_blank">📺 HBO Max</a>
+</div>
+<div class="galeria">
+    <img src="imagenes/avatar.png">
+    <img src="imagenes/coco.png">
+    <img src="imagenes/hombre araña.png">
+    <img src="imagenes/pelis.png">
+    <img src="imagenes/up.png">
+    <img src="imagenes/frozen.png">
+    <img src="imagenes/marvel.png">
+    <img src="imagenes/intensamente.png">
+</div>
+
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

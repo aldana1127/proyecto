@@ -1,0 +1,93 @@
+
+body {
+margin: 0;
+padding: 0;
+font-family: Arial, Helvetica, sans-serif;
+background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+display: flex;
+justify-content: center;
+padding-top: 40px;
+}
+
+
+.contenedor {
+width: 100%;
+max-width: 450px;
+text-align: center;
+}
+
+
+h1 {
+color: #7CFC00;
+margin-bottom: 20px;
+}
+
+
+.busqueda {
+background: white;
+padding: 20px;
+border-radius: 12px;
+margin-bottom: 20px;
+box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+
+
+input {
+padding: 10px;
+width: 65%;
+border-radius: 8px;
+border: 1px solid #ccc;
+}
+
+
+button {
+padding: 10px 15px;
+border: none;
+border-radius: 8px;
+background-color: #7CFC00;
+color: black;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover {
+background-color: #5ed400;
+}
+
+
+#tarjeta {
+background: white;
+padding: 25px;
+border-radius: 15px;
+box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+}
+
+
+#imagenPersonaje {
+width: 180px;
+border-radius: 50%;
+border: 5px solid #7CFC00;
+margin-bottom: 15px;
+}
+
+
+.info {
+display: flex;
+justify-content: space-around;
+margin-top: 15px;
+border-top: 1px solid #ddd;
+padding-top: 10px;
+}
+
+
+.oculto {
+display: none;
+}
+
+
+.error {
+background: #ffdede;
+color: #d63031;
+padding: 10px;
+border-radius: 8px;
+}

@@ -1,168 +1,72 @@
-const inputPelicula = document.getElementById("inputPelicula");
-const btnAgregar = document.getElementById("btnAgregar");
-const listaPeliculas = document.getElementById("listaPeliculas");
-const contador = document.getElementById("contador");
-const filtro = document.getElementById("filtro");
 
-let peliculas = JSON.parse(localStorage.getItem("peliculas")) || [];
+const botonBuscar = document.getElementById("buscarBtn");
+const inputPersonaje = document.getElementById("personajeInput");
+const tarjeta = document.getElementById("tarjeta");
+const mensaje = document.getElementById("mensaje");
 
+//event detectar el click
+botonBuscar.addEventListener("click", buscarPersonaje);
 
-function guardarPeliculas() {
-localStorage.setItem("peliculas", JSON.stringify(peliculas));
-}
+//función principal
+async function buscarPersonaje() {
+//guardar lo que escribe el usuario
+const personaje = inputPersonaje.value.trim();
 
+//validar que lo que escribio el usuario no esta vacio
+if (personaje === "") {
 
-function actualizarContador() {
-contador.textContent = "Total de películas: " + peliculas.length;
-}
-
-
-function mostrarPeliculas() {
-listaPeliculas.innerHTML = "";
-
-let peliculasFiltradas = peliculas;
-
-if (filtro.value === "vistas") {
-peliculasFiltradas = peliculas.filter(p => p.vista);
-} else if (filtro.value === "pendientes") {
-peliculasFiltradas = peliculas.filter(p => !p.vista);
-}
-
-peliculasFiltradas.forEach((pelicula, index) => {
-
-const li = document.createElement("li");
-const texto = document.createElement("span");
-
-texto.innerHTML = `${pelicula.nombre}
-
-<span class="${pelicula.vista? 'estado-vista': 'estado-pendiente'}">
-
-${pelicula.vista? '✔ VISTA': '⏳ PENDIENTE'}</span>`;
-
-texto.style.color =
-pelicula.vista
-? "lightgreen"
-: "white";
-
-
-const contenedorBotones =
-document.createElement("div");
-
-
-const botonVista =
-document.createElement("button");
-
-botonVista.textContent =
-pelicula.vista
-? "Quitar vista"
-: "Marcar vista";
-
-botonVista.style.backgroundColor =
-pelicula.vista
-? "green"
-: "orange";
-
-botonVista.style.color = "white";
-
-botonVista.addEventListener("click", () => {
-marcarVista(index);
-});
-
-const botonEliminar =
-document.createElement("button");
-
-botonEliminar.textContent = "Eliminar";
-
-botonEliminar.style.backgroundColor = "crimson";
-
-botonEliminar.style.color = "white";
-
-botonEliminar.addEventListener("click", () => {
-eliminarPelicula(index);
-});
-
-
-contenedorBotones.appendChild(botonVista);
-contenedorBotones.appendChild(botonEliminar);
-
-li.appendChild(texto);
-li.appendChild(contenedorBotones);
-
-listaPeliculas.appendChild(li);
-
-});
-
-actualizarContador();
-}
-
-function agregarPelicula(){
-
-const nuevaPelicula =
-inputPelicula.value.trim();
-
-
-if(nuevaPelicula === ""){
-
-alert("Escribi una película");
-
+mostrarMensaje("Escribe un personaje");
 return;
+
 }
 
-const formatoValido =!/[@#$%^&*()_+=\[\]{};:"\\|<>\/?]+/.test(nuevaPelicula);
+mensaje.innerHTML = " Buscando personaje...";
+tarjeta.classList.add("oculto");
 
-if(!formatoValido || nuevaPelicula.length > 1){
+try {
 
-document.body.style.backgroundColor = "red";
-document.body.innerHTML = `<h1 style="color:white; text-align:center; margin-top:200px; font-size:50px;">❌ ERROR: NO ES VÁLIDO</h1>`;
+//conexion con la api de rick y morty
+const respuesta = await fetch(`https://rickandmortyapi.com/api/character/?name=${personaje}`);
 
-return;
+//si ponemos un personaje que no esta en la serie, pone personaje no encontrado
+if (!respuesta.ok) {
+
+throw new Error("Personaje no encontrado");
+
+}
+//convertir respuesta a JSON
+const data = await respuesta.json();
+
+const info = data.results[0];
+
+//muestra los datos en pantalla
+document.getElementById("imagenPersonaje").src =info.image;
+
+document.getElementById("nombrePersonaje").innerText =info.name;
+
+document.getElementById("estadoPersonaje").innerText ="Estado: " + info.status;
+
+document.getElementById("especie").innerText =info.species;
+
+document.getElementById("genero").innerText =info.gender;
+
+document.getElementById("ubicacion").innerText =" Ubicación: " + info.location.name;
+
+
+mensaje.innerHTML = "";
+tarjeta.classList.remove("oculto");
+//muestra error si algo falla
+} catch (error) {
+
+mostrarMensaje(error.message);
+
+}
+
 }
 
 
-peliculas.push({
-nombre: nuevaPelicula,
-vista: false
-});
+function mostrarMensaje(texto) {
 
+mensaje.innerHTML = `<p class="error">⚠️ ${texto}</p>`;
 
-guardarPeliculas();
-
-mostrarPeliculas();
-
-inputPelicula.value = "";
 }
-
-
-function eliminarPelicula(index) {
-
-peliculas =
-peliculas.filter((_, i) => i !== index);
-
-guardarPeliculas();
-
-mostrarPeliculas();
-}
-
-
-function marcarVista(index) {
-
-peliculas[index].vista =
-!peliculas[index].vista;
-
-guardarPeliculas();
-
-mostrarPeliculas();
-}
-
-
-btnAgregar.addEventListener(
-"click",
-agregarPelicula
-);
-
-filtro.addEventListener(
-"change",
-mostrarPeliculas
-);
-
-mostrarPeliculas();

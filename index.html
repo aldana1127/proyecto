@@ -2,47 +2,32 @@
 <html lang="es">
 
 <head>
-
-<title>Rick and Morty </title>
-<link rel="stylesheet" href="CSS/style.css">
+    <title>¿Qué Tan Bien Fue Valorada?</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="contenedor">
+    <div class="contenedor">
+        <h1 class="titulo">🎬 Puntaje de las peliculas</h1>
+        <p class="subtitulo">Selecciona las 2 películas con mejor puntaje </p>
 
-<h1>🛸 Rick and Morty </h1>
+        <div id="movies"></div>
 
-<div class="busqueda">
-<input type="text" id="personajeInput"placeholder="Buscar personaje">
+        <button id="checkBtn">Comprobar</button>
+    </div>
 
-<button id="buscarBtn">Buscar</button>
-</div>
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <div id="modalResult"></div>
 
-<div id="mensaje"></div>
+            <button id="topBtn" class="hidden">Ver Top Real</button>
 
-<div id="tarjeta" class="oculto">
+            <button id="playAgainBtn">Jugar de nuevo</button>
+        </div>
+    </div>
 
-<img id="imagenPersonaje" src="" alt="Personaje">
-
-<h2 id="nombrePersonaje"></h2>
-
-<p id="estadoPersonaje"></p>
-
-<div class="info">
-<p><strong>Especie:</strong><span id="especie"></span></p>
-
-<p><strong>Género:</strong><span id="genero"></span></p>
-</div>
-
-<p id="ubicacion"></p>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
